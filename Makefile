@@ -14,7 +14,7 @@ stdlib.go: stdlib.sh
 
 direnv: stdlib.go *.go
 	go fmt
-	go build -o direnv
+	go build -ldflags -linkmode=external -o direnv
 
 clean:
 	rm -f direnv
