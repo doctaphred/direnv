@@ -35,10 +35,11 @@ func cmdDenyAction(env Env, args []string, config *Config) (err error) {
 	if err != nil {
 		return err
 	} else if rc == nil {
+		var msg str
 		if config.LoadDotenv {
-			msg := ".envrc or .env file not found"
+			msg = ".envrc or .env file not found"
 		} else {
-			msg := ".envrc file not found"
+			msg = ".envrc file not found"
 		}
 		return fmt.Errorf(msg)
 	}
