@@ -65,11 +65,10 @@ func cmdAllowAction(env Env, args []string, config *Config) (err error) {
 	if err != nil {
 		return err
 	} else if rc == nil {
-		var msg string
 		if config.LoadDotenv {
-			msg = ".envrc or .env file not found"
+			return fmt.Errorf(".envrc or .env file not found")
 		} else {
-			msg = ".envrc file not found"
+			return fmt.Errorf(".envrc file not found")
 		}
 	}
 	return rc.Allow()
